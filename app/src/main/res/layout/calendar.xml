@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".CalendarActivity">
+
+    <View
+        android:id="@+id/title_bar"
+        android:layout_width="320dp"
+        android:layout_height="40dp"
+        android:background="@drawable/calendar_bg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/year"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:text="2018"
+        android:textColor="#ffffff"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@id/title_bar"
+        app:layout_constraintStart_toStartOf="@id/title_bar"
+        app:layout_constraintTop_toTopOf="@id/title_bar" />
+
+    <TextView
+        android:id="@+id/month"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:text="四"
+        android:textColor="#ffffff"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@id/title_bar"
+        app:layout_constraintEnd_toEndOf="@id/title_bar"
+        app:layout_constraintStart_toStartOf="@id/title_bar"
+        app:layout_constraintTop_toTopOf="@id/title_bar" />
+    <TextView
+        android:id="@+id/monthName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="月"
+        android:textColor="#ffffff"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@id/title_bar"
+        app:layout_constraintStart_toEndOf="@id/month"
+        app:layout_constraintTop_toTopOf="@id/title_bar" />
+    <com.necer.view.WeekBar
+        android:id="@+id/week"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title_bar" />
+
+    <com.necer.calendar.MonthCalendar
+        android:id="@+id/month_calendar"
+        android:layout_width="320dp"
+        android:layout_height="280dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/week" />
+
+    <View
+        android:id="@+id/bottom_view"
+        android:layout_width="320dp"
+        android:layout_height="40dp"
+        android:background="@drawable/calendar_bg_bottom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/month_calendar" />
+
+    <TextView
+        android:id="@+id/lastYear"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:onClick="lastYear"
+        android:text="上一年"
+        android:textColor="#ffffff"
+        app:layout_constraintBottom_toBottomOf="@id/bottom_view"
+        app:layout_constraintEnd_toStartOf="@id/dividerOne"
+        app:layout_constraintStart_toStartOf="@id/bottom_view"
+        app:layout_constraintTop_toTopOf="@id/bottom_view" />
+
+    <View
+        android:id="@+id/dividerOne"
+        android:layout_width="1dp"
+        android:layout_height="40dp"
+        android:background="#ffffff"
+        app:layout_constraintEnd_toStartOf="@id/lastMonth"
+        app:layout_constraintStart_toEndOf="@id/lastYear"
+        app:layout_constraintTop_toTopOf="@id/bottom_view" />
+
+    <TextView
+        android:id="@+id/lastMonth"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:onClick="lastMonth"
+        android:text="上个月"
+        android:textColor="#ffffff"
+        app:layout_constraintBottom_toBottomOf="@id/bottom_view"
+        app:layout_constraintEnd_toStartOf="@id/dividerTwo"
+        app:layout_constraintStart_toEndOf="@id/dividerOne"
+        app:layout_constraintTop_toTopOf="@id/bottom_view" />
+
+    <View
+        android:id="@+id/dividerTwo"
+        android:layout_width="1dp"
+        android:layout_height="40dp"
+        android:background="#ffffff"
+        app:layout_constraintEnd_toStartOf="@id/nextMonth"
+        app:layout_constraintStart_toEndOf="@id/lastMonth"
+        app:layout_constraintTop_toTopOf="@id/bottom_view" />
+
+    <TextView
+        android:id="@+id/nextMonth"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="下个月"
+        android:textColor="#ffffff"
+        android:onClick="nextMonth"
+        app:layout_constraintBottom_toBottomOf="@id/bottom_view"
+        app:layout_constraintEnd_toStartOf="@id/dividerThree"
+        app:layout_constraintStart_toEndOf="@id/dividerTwo"
+        app:layout_constraintTop_toTopOf="@id/bottom_view" />
+
+    <View
+        android:id="@+id/dividerThree"
+        android:layout_width="1dp"
+        android:layout_height="40dp"
+        android:background="#ffffff"
+        app:layout_constraintEnd_toStartOf="@id/nextYear"
+        app:layout_constraintStart_toEndOf="@id/nextMonth"
+        app:layout_constraintTop_toTopOf="@id/bottom_view" />
+
+    <TextView
+        android:id="@+id/nextYear"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="下一年"
+        android:textColor="#ffffff"
+        android:onClick="nextYear"
+        app:layout_constraintBottom_toBottomOf="@id/bottom_view"
+        app:layout_constraintEnd_toEndOf="@id/bottom_view"
+        app:layout_constraintStart_toEndOf="@id/dividerThree"
+        app:layout_constraintTop_toTopOf="@id/bottom_view" />
+</androidx.constraintlayout.widget.ConstraintLayout>
